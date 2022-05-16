@@ -1,0 +1,59 @@
+﻿
+<footer>
+    <div class="bg2 p-t-40 p-b-25">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 p-b-20">
+                    <div class="size-h-3 flex-s-c">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="~/assets/client/images/800px-HUNRE_Logo.png" alt="LOGO" style="width:30%">
+                        </a>
+                    </div>
+                    <div>
+                        <p class="f1-s-1 cl0 p-b-16">
+                            ĐẠI HỌC TÀI NGUYÊN VÀ MÔI TRƯỜNG HÀ NỘI
+                            <br />
+                            Địa chỉ: Số 41A đường Phú Diễn, Q. Bắc Từ Liêm, TP. Hà Nội
+                            Điện thoại: 0902 130 130
+                            <br />
+                            Email: DHTNMT@hunre.edu.vn
+                        </p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14894.65116818202!2d105.7618142!3d21.0461744!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb1a1ac92701777bc!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUw6BpIG5ndXnDqm4gdsOgIE3DtGkgdHLGsOG7nW5nIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1648997177631!5m2!1svi!2s" width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="p-t-15">
+                            <a href="https://www.facebook.com/Hunre.fanpage" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                                <span class="fab fa-facebook-f"></span>
+                            </a>
+
+                            <a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                                <span class="fab fa-twitter"></span>
+                            </a>
+
+                            <a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                                <span class="fab fa-pinterest-p"></span>
+                            </a>
+
+                            <a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                                <span class="fab fa-vimeo-v"></span>
+                            </a>
+
+                            <a href="https://www.youtube.com/c/HUNRENEWS" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                                <span class="fab fa-youtube"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                @{Html.RenderAction("PostFooter", "Home");}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bg11">
+        <div class="container size-h-1 flex-c-c p-tb-15">
+            <span class="f1-s-1 cl13 txt-center">
+                Copyright &copy;@DateTime.Now.Year &nbsp; Đại học Tài nguyên và Môi trường Hà Nội . All rights reversed.
+            </span>
+        </div>
+    </div>
+</footer>

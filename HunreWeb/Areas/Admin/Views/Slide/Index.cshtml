@@ -1,0 +1,62 @@
+﻿@model PagedList.IPagedList<HunreWeb.Data.Model.Slide>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Danh sách slide";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Danh sách slide
+}
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <!-- Simple Tables -->
+        <div class="card">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Link</th>
+                            <th>DisplayOrder</th>
+                            <th>Status</th>
+                            <th>Create date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td><img src="@item.Image" width="100px" /></td>
+                            <td>@item.Link</td>
+                            <td>@item.DisplayOrder</td>
+                            <td>@(item.Status.HasValue? "Kích hoạt": "Vô hiệu hóa")</td>
+                            <td>@(item.CreateDate.HasValue?item.CreateDate.Value.ToString("dd-MM-yyyy"):"")</td>
+                            <td>
+                                <a href="/Admin/Slide/Edit/@item.ID">Edit</a>
+                                &nbsp;&nbsp;
+                                <a href="/Admin/Slide/Delete/@item.ID">Delete</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { LiElementClasses = new List<String> { "page-link" } })
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="card-footer"></div>
+        </div>
+    </div>
+</div>
+

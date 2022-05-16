@@ -1,0 +1,30 @@
+﻿@{
+    var Menu = (List<HunreWeb.Data.Model.Menu>)ViewBag.MenuList;
+    var Catergory = (List<HunreWeb.Data.Model.catergory>)ViewBag.CatergoryList;
+}
+<div class="wrap-main-nav">
+    <div class="main-nav">
+        <!-- Menu desktop -->
+        <nav class="menu-desktop">
+            <ul class="main-menu">
+                @foreach (var menu in Menu.Where(x => x.Status == true).OrderBy(x => x.DisplayOrder).Take(6))
+                {
+                    var cat = Catergory.Where(x => x.IDMenu == menu.ID);
+                    <li class="main-menu">
+                        <a href="#">@menu.Name</a>
+                        @if (cat.Count() > 0)
+                        {
+                            <ul class="sub-menu">
+                                @foreach (var item in cat)
+                                {
+                                    var catlink = "/danh-muc"+ item.MetaTitle + "-" + item.ID;
+                                    <li><a href="@catlink">@item.Name</a></li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>

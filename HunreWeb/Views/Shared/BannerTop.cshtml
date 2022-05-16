@@ -1,0 +1,9 @@
+﻿@{
+    var Banner = ViewBag.Banner;
+}
+<div class="banner-header">
+    @foreach (var item in Banner)
+    {
+        <a href="@item.Link"><img src="@item.Image" alt="IMG" target =" _blank"></a>
+    }
+</div>

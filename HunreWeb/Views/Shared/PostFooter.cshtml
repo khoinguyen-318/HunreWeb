@@ -1,0 +1,38 @@
+﻿@{ 
+    var post = (List<HunreWeb.Data.Model.Content>)ViewBag.Newest;
+}
+<div class="col-sm-10 col-lg-8 p-b-20">
+    <div class="size-h-3 flex-s-c">
+        <h5 class="f1-m-7 cl0">
+            Bài viết mới nhất
+        </h5>
+    </div>
+
+    <ul>
+        @foreach (var item in post)
+        {
+            var link = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
+            <li class="flex-wr-sb-s p-b-20">
+                <a href="@link" class="size-w-4 wrap-pic-w hov1 trans-03">
+                    <img src="@item.Image" alt="IMG">
+                </a>
+
+                <div class="size-w-5">
+                    <h6 class="p-b-5">
+                        <a href="@link" class="f1-s-5 cl11 hov-cl10 trans-03">
+                            @item.Name
+                        </a>
+                    </h6>
+
+                    <span class="f1-s-3 cl6">
+                        @(item.CreateDate.HasValue?item.CreateDate.Value.ToString("dd-MM-yyyy"):"")
+                    </span>
+                </div>
+            </li>
+        }
+
+
+
+    </ul>
+</div>
+

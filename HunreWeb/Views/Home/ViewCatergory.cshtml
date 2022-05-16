@@ -1,0 +1,53 @@
+﻿@model PagedList.IPagedList<HunreWeb.Data.Model.Content>
+@using PagedList.Mvc
+@{
+    var CatergoryName = (HunreWeb.Data.Model.catergory)ViewBag.CatergoryName;
+    ViewBag.Title = CatergoryName.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container p-t-4 p-b-40">
+    <h2 class="f1-l-1 cl2">
+        @CatergoryName.Name
+    </h2>
+</div>
+<section class="bg0 p-t-70 p-b-55">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 p-b-80">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        var link = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
+                        <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                            <!-- Item latest -->
+                            <div class="m-b-45">
+                                <a href="@link" class="wrap-pic-w hov1 trans-03">
+                                    <img src="@item.Image" alt="IMG">
+                                </a>
+
+                                <div class="p-t-16">
+                                    <h5 class="p-b-5">
+                                        <a href="@link" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                            @item.Name
+                                        </a>
+                                    </h5>
+
+                                    <span class="cl8">
+                                        <span class="f1-s-3">
+                                            @(item.CreateDate.HasValue?item.CreateDate.Value.ToString("dd-MM-yyyy"):"")
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- Pagination -->
+                <div class="flex-wr-s-c m-rl--7 p-t-15">
+                    @Html.PagedListPager(Model, page => Url.Action("ViewCatergory", new { page }), new PagedListRenderOptions { LiElementClasses = new List<String> { "flex-c-c pagi-item hov-btn1 trans-03 m-all-7" } })
+                </div>
+            </div>
+            @{Html.RenderAction("RightSlide", "Home");}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,18 @@
+﻿@{
+    var rightslide = (List<HunreWeb.Data.Model.Slide>)ViewBag.RightSlide;
+}
+<div class="col-md-10 col-lg-4">
+    <div class="p-l-10 p-rl-0-sr991 p-b-20">
+        <!--  -->
+        @foreach (var item in rightslide)
+        {
+            <div class="flex-c-s p-t-8">
+                <a href="@item.Link">
+                    <img class="max-w-full" src="@item.Image" alt="IMG">
+                </a>
+            </div>
+        }
+
+
+    </div>
+</div>

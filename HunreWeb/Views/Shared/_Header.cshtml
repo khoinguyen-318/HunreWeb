@@ -1,0 +1,61 @@
+﻿@using System.Globalization;
+@using System.Reflection;
+<header>
+    <!-- Header desktop -->
+    <div class="container-menu-desktop">
+        <div class="topbar">
+            <div class="content-topbar container h-100">
+                <div class="left-topbar">
+                    <span class="left-topbar-item flex-wr-s-c">
+                        @{ var locate = RegionInfo.CurrentRegion.EnglishName; }
+                        <span>
+                            @locate
+                        </span>
+                    </span>
+
+                    <a href="#" class="left-topbar-item">
+                        Diễn đàn
+                    </a>
+                    <a href="#" class="left-topbar-item">
+                        Ký túc xá
+                    </a>
+                    <a href="#" class="left-topbar-item">
+                        Hỗ trợ sinh viên
+                    </a>
+                </div>
+
+                <div class="right-topbar">
+                    <a href="https://www.facebook.com/Hunre.fanpage">
+                        <span class="fab fa-facebook-f"></span>
+                    </a>
+
+                    <a href="#">
+                        <span class="fab fa-twitter"></span>
+                    </a>
+
+                    <a href="#">
+                        <span class="fab fa-pinterest-p"></span>
+                    </a>
+
+                    <a href="#">
+                        <span class="fab fa-vimeo-v"></span>
+                    </a>
+
+                    <a href="https://www.youtube.com/c/HUNRENEWS">
+                        <span class="fab fa-youtube"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="wrap-logo container">
+            <!-- Logo desktop -->
+            <div class="logo">
+                <a href="@Url.Action("Index", "Home")"><img src="~/assets/client/images/logo-hunre.png" alt="LOGO"></a>
+            </div>
+            <!-- Banner -->
+            @{Html.RenderAction("BannerTop", "Home");}
+        </div>
+        @{Html.RenderAction("MainMenu", "Home");}
+    </div>
+</header>
